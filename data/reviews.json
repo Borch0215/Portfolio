@@ -1,0 +1,10 @@
+[
+  {"id":"rev1","name":"María López","email":"maria@example.com","stars":5,"message":"Excelente trabajo, muy profesional y atento a los detalles.","verified":true,"created":1690000000},
+  {"id":"rev2","name":"Carlos Ruiz","email":"carlos@example.com","stars":5,"message":"Entregó antes del plazo y el resultado superó expectativas.","verified":true,"created":1691000000},
+  {"id":"rev3","name":"Ana García","email":"ana@example.com","stars":4,"message":"Gran diseño y experiencia de usuario. Recomiendo sus servicios.","verified":true,"created":1692000000},
+  {"id":"rev4","name":"Luis Fernández","email":"luis@example.com","stars":5,"message":"Código limpio y muy fácil de mantener. Excelente comunicación.","verified":true,"created":1693000000},
+  {"id":"rev5","name":"Sofía Pérez","email":"sofia@example.com","stars":4,"message":"Buen desempeño, mejoras en accesibilidad visibles.","verified":true,"created":1694000000},
+  {"id":"rev6","name":"Javier Martínez","email":"javier@example.com","stars":5,"message":"Muy recomendable para proyectos completos de frontend y backend.","verified":true,"created":1695000000},
+  {"id":"rev7","name":"Pilar Torres","email":"pilar@example.com","stars":5,"message":"Excelente comunicación y entrega puntual. Altamente profesional.","verified":true,"created":1696000000},
+  {"id":"rev8","name":"Eduardo Gómez","email":"eduardo@example.com","stars":4,"message":"Trabajo sólido y con enfoque en accesibilidad. Recomendado.","verified":true,"created":1697000000}
+]

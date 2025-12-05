@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Portfolio — Borja Gómez Frade</title>
+  <meta name="description" content="Portfolio profesional de Borja Gómez Frade — Full-stack Developer & UI/UX Designer">
+  <meta property="og:title" content="Portfolio — Borja Gómez Frade">
+  <meta property="og:description" content="Full-stack Developer & UI/UX Designer">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="css/layout.css" as="style">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div id="preloader" aria-label="Cargando" role="status">
+    <svg width="160" height="160" viewBox="0 0 120 120" aria-hidden="true">
+      <defs>
+        <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#06b6d4">
+            <animate attributeName="stop-color" values="#06b6d4;#4f46e5;#06b6d4" dur="3s" repeatCount="indefinite"/>
+          </stop>
+          <stop offset="100%" stop-color="#4f46e5">
+            <animate attributeName="stop-color" values="#4f46e5;#06b6d4;#4f46e5" dur="3s" repeatCount="indefinite"/>
+          </stop>
+        </linearGradient>
+
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+
+        <radialGradient id="particleGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fff" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <circle cx="60" cy="60" r="50" stroke="url(#grad)" stroke-width="10" stroke-linecap="round"
+              fill="none" stroke-dasharray="160 100" filter="url(#glow)">
+        <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="360 60 60" dur="1.5s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-dashoffset" values="0;260;0" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+
+      <circle cx="60" cy="60" r="38" stroke="url(#grad)" stroke-width="6" stroke-linecap="round"
+              fill="none" stroke-dasharray="120 80" filter="url(#glow)">
+        <animateTransform attributeName="transform" type="rotate" from="360 60 60" to="0 60 60" dur="1s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-dashoffset" values="0;200;0" dur="1s" repeatCount="indefinite"/>
+      </circle>
+
+      <g filter="url(#glow)">
+        <circle cx="60" cy="10" r="2.5" fill="url(#particleGrad)" opacity="0.6">
+          <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="360 60 60" dur="1.2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0;1;0" dur="1.2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="60" cy="10" r="2" fill="url(#particleGrad)" opacity="0.5">
+          <animateTransform attributeName="transform" type="rotate" from="120 60 60" to="480 60 60" dur="1.2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0;0.8;0" dur="1.2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="60" cy="10" r="1.8" fill="url(#particleGrad)" opacity="0.4">
+          <animateTransform attributeName="transform" type="rotate" from="240 60 60" to="600 60 60" dur="1.2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0;0.7;0" dur="1.2s" repeatCount="indefinite"/>
+        </circle>
+      </g>
+    </svg>
+  </div>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="#home">Borja Gómez Frade</a>
+      <nav class="nav" role="navigation" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#home">Inicio</a></li>
+          <li><a href="#about">Sobre mí</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Proyectos</a></li>
+          <li><a href="#reviews">Reseñas</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Cambiar tema">
+          <span class="toggle-icon" aria-hidden="true">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2M12 20v2M4.93 4.93 6.34 6.34M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="currentColor"/></svg>
+          </span>
+        </button>
+        <!-- compact dropdown menu for small screens -->
+        <button id="menu-dropdown-toggle" class="menu-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="menu-dropdown" aria-label="Abrir menú">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18"></path>
+          </svg>
+        </button>
+        <div id="menu-dropdown" class="menu-dropdown" hidden aria-hidden="true"></div>
+      </div>
+    </div>
+    <!-- mobile menu removed -->
+  </header>
+
+  <main id="main" role="main">
+    <section id="home" class="hero section" tabindex="-1">
+      <div class="container">
+        <div class="hero-content fade-up">
+          <h1 class="eyebrow">Hola, soy</h1>
+          <h2 class="title">Borja Gómez Frade</h2>
+          <p class="lead">Full-stack Developer & UI/UX Designer — creo experiencias web accesibles y performantes.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">Ver Proyectos</a>
+            <a class="btn outline" href="#contact">Contactar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about section" aria-labelledby="about-title">
+      <div class="container">
+        <h3 id="about-title">Sobre mí</h3>
+        <div class="about-grid fade-up stagger">
+          <div class="about-bio">
+            <p>Hola, soy <strong>Borja Gómez Frade</strong>, desarrollador full-stack con amplia experiencia en crear interfaces accesibles y soluciones backend ligeras. Mi enfoque combina rendimiento, experiencia de usuario y mantenibilidad.</p>
+            <p>Trabajo con HTML5, CSS3 modular, JavaScript moderno y PHP para entornos LAMP/WAMP/XAMPP. Prefiero soluciones simples y robustas: almacenamiento en JSON para prototipos y PHPMailer para flujos de correo seguros.</p>
+            <p><strong>Servicios:</strong> Desarrollo web, UI/UX, integraciones API, optimización de rendimiento y accesibilidad (WCAG AA).</p>
+            <a class="btn primary" href="#contact">Trabajemos juntos</a>
+          </div>
+          <aside class="about-timeline" aria-hidden="false">
+            <h4>Trayectoria</h4>
+            <ol>
+              <li><strong>2023</strong> — Grado Medio de Sistemas Microinformáticos y Redes.</li>
+              <li><strong>2022</strong> — Cursos de diseño 3D, Java y desarrollo Web.</li>
+              <li><strong>2021</strong> — Formación Profesional Básica de Informática.</li>
+              <li><strong>2020</strong> — Desarrollo de Servidores GTA V RolePlay.</li>
+            </ol>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="skills section" aria-labelledby="skills-title">
+      <div class="container">
+        <h3 id="skills-title">Skills</h3>
+        <div id="skills-canvas-wrap" class="skills-wrap" role="list">
+          <!-- Canvas skills rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects section" aria-labelledby="projects-title">
+      <div class="container">
+        <h3 id="projects-title">Proyectos</h3>
+        <div class="filters" role="tablist" aria-label="Filtros de proyectos">
+          <button data-filter="all" class="active">Todos</button>
+          <button data-filter="web">Web</button>
+          <button data-filter="js">JavaScript</button>
+          <button data-filter="apps">Apps</button>
+          <button data-filter="apis">APIs</button>
+          <button data-filter="ux">UI/UX</button>
+        </div>
+        <div id="projects-grid" class="projects-grid" role="list"></div>
+      </div>
+    </section>
+
+    <section id="reviews" class="reviews section" aria-labelledby="reviews-title">
+      <div class="container">
+        <h3 id="reviews-title">Reseñas</h3>
+        <div class="reviews-top">
+          <div class="reviews-summary">
+            <div class="avg-rating" aria-hidden="true">★ <span id="avg-stars">4.8</span></div>
+            <p class="reviews-count" id="reviews-count">Mostrando reseñas verificadas</p>
+          </div>
+          <div class="reviews-controls">
+            <button id="rev-prev" class="btn outline">◀</button>
+            <button id="rev-next" class="btn outline">▶</button>
+          </div>
+        </div>
+        <div id="reviews-carousel" class="carousel"></div>
+        <div class="reviews-form fade-up">
+          <h4>Añadir reseña</h4>
+          <form id="review-form" class="form-compact">
+            <label>Nombre <input name="name" required></label>
+            <label>Email <input name="email" type="email" required></label>
+            <label>Estrellas
+              <div class="star-rating" role="radiogroup" aria-label="Seleccionar estrellas">
+                <input type="hidden" name="stars" value="5">
+                <button type="button" class="star" data-value="1" aria-label="1 estrella">☆</button>
+                <button type="button" class="star" data-value="2" aria-label="2 estrellas">☆</button>
+                <button type="button" class="star" data-value="3" aria-label="3 estrellas">☆</button>
+                <button type="button" class="star" data-value="4" aria-label="4 estrellas">☆</button>
+                <button type="button" class="star" data-value="5" aria-label="5 estrellas">☆</button>
+              </div>
+            </label>
+            <label>Mensaje <textarea name="message" rows="4" required></textarea></label>
+            <div class="form-actions"><button type="submit" class="btn primary">Enviar reseña</button></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact section" aria-labelledby="contact-title">
+      <div class="container">
+        <h3 id="contact-title">Contacto</h3>
+        <div class="contact-grid">
+          <form id="contact-form" class="form-card fade-up" novalidate>
+            <p class="muted">Escríbeme un mensaje y te responderé en menos de 48h. Campos obligatorios marcados *</p>
+            <label class="field-floating">
+              <input name="name" required placeholder=" ">
+              <span class="label-text">Nombre *</span>
+            </label>
+            <label class="field-floating">
+              <input name="email" type="email" required placeholder=" ">
+              <span class="label-text">Email *</span>
+            </label>
+            <label class="field-floating">
+              <input name="subject" placeholder=" ">
+              <span class="label-text">Asunto</span>
+            </label>
+            <label>Mensaje * <textarea name="message" rows="6" required></textarea></label>
+            <div class="form-actions"><button type="submit" class="btn shine">Enviar Mensaje</button></div>
+          </form>
+          <aside class="contact-map card fade-up" aria-hidden="true">
+            <h4>Ubicación</h4>
+            <p>Ciudad, País — Disponible para trabajo remoto y colaboraciones.</p>
+            <div class="map-placeholder">Mapa (placeholder)</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col fade-up">
+          <h4>Borja Gómez Frade</h4>
+          <p>Full-stack Developer & UI/UX Designer. Creo experiencias web accesibles y performantes.</p>
+          <div class="footer-socials">
+            <a href="https://github.com" target="_blank" rel="noopener" title="GitHub" class="social-link">GitHub</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" title="LinkedIn" class="social-link">LinkedIn</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener" title="Twitter" class="social-link">Twitter</a>
+          </div>
+        </div>
+        <div class="footer-col fade-up">
+          <h5>Navegación</h5>
+          <ul>
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#about">Sobre mí</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Proyectos</a></li>
+          </ul>
+        </div>
+        <div class="footer-col fade-up">
+          <h5>Más</h5>
+          <ul>
+            <li><a href="#reviews">Reseñas</a></li>
+            <li><a href="#contact">Contacto</a></li>
+            <li><a href="mailto:ejemplo@gmail.com">Email</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom fade-up">
+        <p>&copy; <span id="year"></span> Borja Gómez Frade. Todos los derechos reservados. Diseño y desarrollo con ❤️</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/preloader.js" defer></script>
+  <script type="module" src="js/main.js" defer></script>
+  <!-- mobile menu script removed -->
+  <script type="module" src="js/scroll-animations.js" defer></script>
+  <script type="module" src="js/theme-toggle.js" defer></script>
+  <script type="module" src="js/menu-dropdown.js" defer></script>
+  <script type="module" src="js/skills-canvas.js" defer></script>
+  <script type="module" src="js/projects-filter.js" defer></script>
+  <script type="module" src="js/carousel.js" defer></script>
+  <script type="module" src="js/reviews.js" defer></script>
+  <script type="module" src="js/contact.js" defer></script>
+</body>
+</html>

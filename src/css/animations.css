@@ -1,0 +1,225 @@
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Fade Up Animation - Base */
+.fade-up {
+  opacity: 0;
+  transform: translate3d(0,20px,0);
+  transition: opacity var(--dur-base) var(--ease-smooth), transform var(--dur-base) var(--ease-smooth);
+}
+
+.fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger effect */
+.stagger > * {
+  opacity: 0;
+  transform: translate3d(0,12px,0);
+  transition: opacity var(--dur-md) var(--ease-smooth), transform var(--dur-md) var(--ease-smooth);
+}
+
+.stagger > *:nth-child(1) { transition-delay: 0ms; }
+.stagger > *:nth-child(2) { transition-delay: 80ms; }
+.stagger > *:nth-child(3) { transition-delay: 160ms; }
+.stagger > *:nth-child(4) { transition-delay: 240ms; }
+.stagger > *:nth-child(5) { transition-delay: 320ms; }
+.stagger > *:nth-child(6) { transition-delay: 400ms; }
+.stagger > *:nth-child(7) { transition-delay: 480ms; }
+.stagger > *:nth-child(8) { transition-delay: 560ms; }
+
+.stagger.in-view > * {
+  opacity: 1;
+  transform: translate3d(0,0,0);
+}
+
+/* Projects Grid Animation */
+.projects-grid > * {
+  animation: grid-item-fade var(--dur-base) var(--ease-smooth) forwards;
+  opacity: 0;
+}
+
+.projects-grid > *:nth-child(1) { animation-delay: 0ms; }
+.projects-grid > *:nth-child(2) { animation-delay: 80ms; }
+.projects-grid > *:nth-child(3) { animation-delay: 160ms; }
+.projects-grid > *:nth-child(4) { animation-delay: 240ms; }
+.projects-grid > *:nth-child(5) { animation-delay: 320ms; }
+.projects-grid > *:nth-child(6) { animation-delay: 400ms; }
+.projects-grid > *:nth-child(7) { animation-delay: 480ms; }
+.projects-grid > *:nth-child(8) { animation-delay: 560ms; }
+
+@keyframes grid-item-fade {
+  from { opacity: 0; transform: translate3d(0,20px,0); }
+  to { opacity: 1; transform: translate3d(0,0,0); }
+}
+
+/* Preloader general */
+#preloader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg, #111);
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#preloader svg {
+  width: 160px;
+  height: 160px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+/* Navigation animations */
+.nav-list a { position: relative; transition: color var(--dur-xs) var(--ease-smooth); }
+
+.nav-list a::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transition: width var(--dur-sm) var(--ease-smooth);
+}
+
+.nav-list a:hover::after { width: 100%; }
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Links and buttons smooth hover */
+a, button {
+  transition: all 0.3s ease;
+}
+
+/* Section entrance animations */
+.section { animation: section-fade-in var(--dur-base) var(--ease-smooth) forwards; }
+@keyframes section-fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* Hero section animations */
+.hero .eyebrow { animation: fade-up-delayed var(--dur-base) var(--ease-smooth) forwards; opacity: 0; animation-delay: 120ms; }
+.hero .title { animation: fade-up-delayed var(--dur-base) var(--ease-smooth) forwards; opacity: 0; animation-delay: 240ms; }
+.hero .lead { animation: fade-up-delayed var(--dur-base) var(--ease-smooth) forwards; opacity: 0; animation-delay: 360ms; }
+.hero-actions { animation: fade-up-delayed var(--dur-base) var(--ease-smooth) forwards; opacity: 0; animation-delay: 480ms; }
+@keyframes fade-up-delayed { from { opacity: 0; transform: translate3d(0,20px,0); } to { opacity: 1; transform: translate3d(0,0,0); } }
+
+/* Card hover animation - Proyectos */
+.projects-item { transition: transform var(--dur-sm) var(--ease-smooth), box-shadow var(--dur-sm) var(--ease-smooth), border-color var(--dur-sm) var(--ease-smooth); }
+
+.projects-item::before { transition: transform var(--dur-md) var(--ease-smooth); }
+
+.projects-item::after { transition: opacity var(--dur-md) var(--ease-smooth); }
+
+.projects-item:hover { transform: translate3d(0,-12px,0) scale3d(1.02,1.02,1); }
+
+.projects-item .project-title {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.projects-item:hover .project-title {
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+.projects-item small {
+  transition: opacity 0.3s ease;
+}
+
+.projects-item:hover small {
+  opacity: 1;
+}
+
+/* Button animations */
+.btn { transition: transform var(--dur-xs) var(--ease-smooth), box-shadow var(--dur-xs) var(--ease-smooth); }
+.btn:hover { transform: translate3d(0,-4px,0); }
+.btn:active { transform: translate3d(0,0,0) scale3d(0.98,0.98,1); }
+
+/* Form input focus animation */
+input:focus, textarea:focus, select:focus { animation: input-focus var(--dur-xs) var(--ease-smooth); }
+@keyframes input-focus { from { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.08); } to { box-shadow: 0 0 0 6px rgba(79, 70, 229, 0.08); } }
+
+/* Carousel animation */
+.carousel .track {
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Modal animations */
+.modal { animation: modal-fade-in var(--dur-sm) var(--ease-smooth); }
+.modal.fade-in { animation: modal-fade-in var(--dur-sm) var(--ease-smooth); }
+.modal.fade-out { animation: modal-fade-out var(--dur-sm) var(--ease-smooth) forwards; }
+
+@keyframes modal-fade-in { from { opacity: 0; backdrop-filter: blur(0px); } to { opacity: 1; backdrop-filter: blur(6px); } }
+@keyframes modal-fade-out { from { opacity: 1; backdrop-filter: blur(6px); } to { opacity: 0; backdrop-filter: blur(0px); } }
+
+.modal .panel { animation: modal-slide-up var(--dur-base) var(--ease-smooth); }
+@keyframes modal-slide-up { from { opacity: 0; transform: translate3d(0,40px,0); } to { opacity: 1; transform: translate3d(0,0,0); } }
+
+/* Scroll animations for multiple elements */
+.fade-up, .stagger > * { will-change: transform, opacity; }
+
+/* Mobile menu removed; no mobile-menu animations remain */
+
+/* Menu dropdown animations */
+.menu-dropdown .menu-list li {
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+  animation: menu-item-in 360ms cubic-bezier(.2,.9,.2,1) forwards;
+  animation-delay: var(--delay, 0ms);
+}
+
+@keyframes menu-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Toggle micro-interaction */
+.menu-dropdown-toggle:active {
+  transform: scale(0.98);
+}
+
+/* Slight bounce when opening */
+.menu-dropdown.open { animation: dropdown-pop 260ms cubic-bezier(.2,.9,.2,1); }
+@keyframes dropdown-pop {
+  0% { transform: translateY(-6px) scale(.995); opacity: 0; }
+  60% { transform: translateY(0) scale(1.01); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Accessibility: Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .fade-up, .stagger > *, .hero .eyebrow, .hero .title, .hero .lead, .hero-actions, .projects-item, .btn, .modal, .modal .panel {
+    animation: none !important;
+    transition: none !important;
+  }
+  html { scroll-behavior: auto; }
+}

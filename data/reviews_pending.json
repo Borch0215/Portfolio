@@ -1,0 +1,4 @@
+[
+  {"id":"rev7","name":"Pilar Torres","email":"pilar@example.com","stars":5,"message":"Estoy a la espera de verificar mi reseña.","verified":true,"token":"token_pending_1","expires":1710000000,"created":1696000000},
+  {"id":"rev8","name":"Eduardo Gómez","email":"eduardo@example.com","stars":3,"message":"Pendiente de verificación por email.","verified":false,"token":"token_pending_2","expires":1710000000,"created":1697000000}
+]
